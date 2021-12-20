@@ -31,7 +31,7 @@ class RegistrationForm extends React.Component {
                 <input id="lName" type="text" name="lastName" size="14" />
                 <label htmlFor="password">Пароль</label>
                 <input id="password" type="password" name="password" size="28" />
-                <input type="submit" className="input-button">Зарегистрироваться</input>
+                <button type="submit" className="input-button">Зарегистрироваться</button>
             </form>
         );
         }

@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
                 <input id="email" type="email" name="email" size="28" />
                 <label htmlFor="password">Пароль</label>
                 <input id="password" type="password" name="password" size="28" />
-                <input type="submit" className="input-button">Войти</input>
+                <button type="submit" className="input-button">Войти</button>
             </form>
         );
         }

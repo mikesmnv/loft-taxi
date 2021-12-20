@@ -8,7 +8,7 @@ class Home extends React.Component {
         return (
             <div>
                 <Header navigate={this.props.navigate}/>
-                <div className="homePage"></div>
+                <div className="homePage">Map</div>
             </div>
         );
         }
