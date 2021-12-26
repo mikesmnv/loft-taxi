@@ -152,7 +152,7 @@
   flex-direction: row;
   height: 1000px;
   width: 100%;
-  background-color: #282c34;
+  background: url("./img/Map.png") center center / cover no-repeat;
 }
 
 .login-page__menu {
@@ -164,9 +164,11 @@
 }
 
 .registration-page {
+  display: flex;
+  flex-direction: row;
   height: 1000px;
   width: 100%;
-  background-color: #282c34;
+  background: url("./img/Map.png") center center / cover no-repeat;
 }
 
 .registration-form {

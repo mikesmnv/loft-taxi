@@ -28,7 +28,7 @@ class RegistrationForm extends React.Component {
       render() {
         return (
             <form title='Регистрация' className='registration-form' onSubmit={this.handleSubmit}>
-                <div className='form__tittle'>Войти</div>
+                <div className='form__tittle'>Регистрация</div>
                 <label htmlFor="email">Адрес электронной почты</label>
                 <input id="email" type="email" name="email" size="28" />
                 <label htmlFor="fName">Имя</label>
