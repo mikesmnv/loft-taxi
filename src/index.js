@@ -3,10 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+<<<<<<< Updated upstream
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+=======
+import { theme } from  "loft-taxi-mui-theme"; 
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./store";
+import { Provider } from "react-redux";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+      </BrowserRouter>
+    </MuiThemeProvider>
+>>>>>>> Stashed changes
   </React.StrictMode>,
   document.getElementById('root')
 );

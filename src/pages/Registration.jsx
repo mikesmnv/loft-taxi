@@ -11,4 +11,11 @@ const Registration = (props) => {
 
 }
 
+<<<<<<< Updated upstream
+=======
+// Registration.propTypes = {
+//     navigate: PropTypes.func.isRequired
+// }
+
+>>>>>>> Stashed changes
 export default Registration ;
