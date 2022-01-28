@@ -11,4 +11,8 @@ const Registration = (props) => {
 
 }
 
+// Registration.propTypes = {
+//     navigate: PropTypes.func.isRequired
+// }
+
 export default Registration ;

@@ -9,7 +9,13 @@ const Header = (props) => {
                 <ul className="navigation-list">
                     { NAVS.map(item => (
                         <li className="navigation-list__item">
-                            <span classList="navigation-list__button" onClick={() => {props.navigate(item.name)}}>{item.text}</span>
+                            {/* <span className="navigation-list__button" onClick={() => {
+                                        logOut();
+                                        props.navigate(item.name)}
+                                        }> {item.text}</span> */}
+                            <span className="navigation-list__button">
+                                <Link to={"/"+item.name}>{item.text}</Link>
+                            </span>
                         </li>
                         ))}
                 </ul>
@@ -18,4 +24,8 @@ const Header = (props) => {
     )
 }
 
-export default Header;
+const HeaderWithAuth = connect(
+    null,
+    { logOut }
+) (Header);
+export default HeaderWithAuth;
