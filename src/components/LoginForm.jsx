@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { authenticate } from "../actions.js";
 
 class LoginForm extends React.Component {
 

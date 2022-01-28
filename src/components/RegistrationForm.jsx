@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, Navigate, useNavigate} from "react-router-dom";
+//import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 class RegistrationForm extends React.Component {
 

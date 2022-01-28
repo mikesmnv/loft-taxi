@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderWithAuth from '../components/Header';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import Map from '../components/Map';
 
 class Home extends React.Component {

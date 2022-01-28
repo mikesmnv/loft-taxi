@@ -4,6 +4,10 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Registration from './pages/Registration';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import  { PrivateRoute } from "./PrivateRoute.jsx";
+import { connect } from "react-redux";
+
 class App extends React.Component {
 
   // state = { currentPage: "login" };

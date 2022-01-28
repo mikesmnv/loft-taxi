@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import {logOut} from "../actions.js";
 const Header = (props) => {
 
     const NAVS = [{name: 'home', text: 'Карта'}, {name: 'profile', text: 'Профиль'}, {name: 'login', text: 'Выйти'}]
