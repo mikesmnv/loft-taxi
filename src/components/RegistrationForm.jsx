@@ -1,9 +1,4 @@
 import React from 'react';
-<<<<<<< Updated upstream
-
-class RegistrationForm extends React.Component {
-
-=======
 import PropTypes from 'prop-types';
 import { Link, Navigate, useNavigate} from "react-router-dom";
 
@@ -13,7 +8,6 @@ class RegistrationForm extends React.Component {
     //     navigate: PropTypes.func
     // }
     
->>>>>>> Stashed changes
     state = {
         email: "",
         password: "",
@@ -44,16 +38,12 @@ class RegistrationForm extends React.Component {
                 <input id="lName" type="text" name="lastName" size="14" />
                 <label htmlFor="password">Пароль</label>
                 <input id="password" type="password" name="password" size="28" />
-<<<<<<< Updated upstream
-                <button type="submit" className="input-button">Зарегистрироваться</button>
-=======
                 <button type="submit" className="form__button">Зарегистрироваться</button>
                 <div className='form__footer'>
                     <span>Уже зарегистрировался?</span>
                     {/*<span className='form__ref-button' onClick={() => this.props.navigate("login")}>Войти</span>*/}
                     <span className='form__ref-button'> <Link to="/login"> Войти </Link> </span>
                 </div>
->>>>>>> Stashed changes
             </form>
         );
         }
