@@ -1,6 +1,6 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 class RegistrationForm extends React.Component {
 
@@ -23,13 +23,14 @@ class RegistrationForm extends React.Component {
             firstName: event.target.firstName.value,
             lastName: event.target.lastName.value
         });
-        //<Navigate replace to="/login" />
+        return (<Navigate to="/login" />);
         //this.props.navigate("home");
       };
 
       render() {
         return (
-            <form title='Регистрация' onSubmit={this.handleSubmit}>
+            <form title='Регистрация' className='registration-form' onSubmit={this.handleSubmit}>
+                <div className='form__tittle'>Регистрация</div>
                 <label htmlFor="email">Адрес электронной почты</label>
                 <input id="email" type="email" name="email" size="28" />
                 <label htmlFor="fName">Имя</label>

@@ -29,10 +29,10 @@ class App extends React.Component {
             {this.state.currentPage === "home" && <Home navigate={ this.navigateTo }/>}
             {this.state.currentPage === "registration" && <Registration navigate={ this.navigateTo }/>} */}
               <Routes>
-                <Route exact path="/" element={<Login {...this.props}/>}/>
+                <Route exact path="" element={<Login {...this.props}/>}/>
                 <Route exact path="login" element={<Login {...this.props}/>}/>
-                <PrivateRoute path="profile" element={<Profile {...this.props}/>}/>
-                <PrivateRoute path="home" element={<Home {...this.props}/>}/>
+                <Route path="profile" element={<PrivateRoute><Profile {...this.props}/></PrivateRoute>}/>
+                <Route path="home" element={<PrivateRoute><Home {...this.props}/></PrivateRoute>}/>
                 <Route exact path="registration" element={<Registration {...this.props}/>}/>
               </Routes>
           </section>
