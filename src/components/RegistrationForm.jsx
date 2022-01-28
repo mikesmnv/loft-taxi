@@ -1,12 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class RegistrationForm extends React.Component {
 
+    static propTypes = {
+        navigate: PropTypes.func
+    }
+    
     state = {
         email: "",
         password: "",
         firstName: "",
-        lastName: ""
+        lastName: ""  
     }
 
     handleSubmit = event => {
@@ -22,7 +27,8 @@ class RegistrationForm extends React.Component {
 
       render() {
         return (
-            <form title='Регистрация' onSubmit={this.handleSubmit}>
+            <form title='Регистрация' className='registration-form' onSubmit={this.handleSubmit}>
+                <div className='form__tittle'>Регистрация</div>
                 <label htmlFor="email">Адрес электронной почты</label>
                 <input id="email" type="email" name="email" size="28" />
                 <label htmlFor="fName">Имя</label>
@@ -31,7 +37,11 @@ class RegistrationForm extends React.Component {
                 <input id="lName" type="text" name="lastName" size="14" />
                 <label htmlFor="password">Пароль</label>
                 <input id="password" type="password" name="password" size="28" />
-                <button type="submit" className="input-button">Зарегистрироваться</button>
+                <button type="submit" className="form__button">Зарегистрироваться</button>
+                <div className='form__footer'>
+                    <span>Уже зарегистрировался?</span>
+                    <span className='form__ref-button' onClick={() => this.props.navigate("login")}>Войти</span>
+                </div>
             </form>
         );
         }
