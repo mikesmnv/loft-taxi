@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navigate, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { authenticate } from "../actions.js";
+import { authenticate, logOut } from "../actions.js";
+import { store } from "../store"
 
 class LoginForm extends React.Component {
 
@@ -9,19 +10,23 @@ class LoginForm extends React.Component {
         email: "",
         password: ""
     }
+    
+    //isLogged = store.getState()["isLoggedIn"];
 
     handleSubmit = event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(email, password);
         this.props.authenticate(email, password);
-        return (<Navigate to="/home" />);
-        // this.props.navigate("home");
         };
+    
+    componentDidMount() {
+            this.props.logOut();
+        }
 
-      render() {
-        return (
+    render() {
+            const { isLoggedIn } = this.props;    
+        return ( isLoggedIn ? (<Navigate to="/home" />) : (
             <form title='Авторизация' onSubmit={this.handleSubmit} className='login-form'>
                 <div className='form__tittle'>Войти</div>
                 <label htmlFor="email">Логин</label>
@@ -34,14 +39,14 @@ class LoginForm extends React.Component {
                     {/*<span className='form__ref-button' onClick={() => this.props.navigate("registration")}>Зарегистрируйтесь</span> */}
                     <span className='form__ref-button'> <Link to="/registration"> Зарегистрируйтесь </Link> </span>
                 </div>
-            </form>
-        );
+            </form> )
+        )
         }
     }
 
     const LoginFormWithAuth = connect(
         (state) => ({isLoggedIn: state.auth.isLoggedIn}),
-        { authenticate }
+        { authenticate, logOut }
     ) (LoginForm)
     
     export default LoginFormWithAuth;
