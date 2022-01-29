@@ -217,3 +217,17 @@
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
   border-radius: 20px;  
 }
+
+.road-form {
+  padding: 10px;
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  left:100px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;  
+}
