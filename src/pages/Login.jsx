@@ -1,6 +1,5 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
-//import PropTypes from 'prop-types';
 import {Logo} from 'loft-taxi-mui-theme';
 
 const Login = (props) => {
@@ -13,8 +12,5 @@ const Login = (props) => {
             </div>
     )
     }
-// Login.propTypes = {
-//     navigate: PropTypes.func.isRequired
-// }
-
+    
 export default Login;

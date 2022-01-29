@@ -1,18 +1,14 @@
 import React from 'react';
 import HeaderWithAuth from '../components/Header';
-//import PropTypes from 'prop-types';
+import CardForm from '../components/CardForm';
 
 class Profile extends React.Component {
 
-    // static propTypes = {
-    //     navigate: PropTypes.func.isRequired
-    //   }
-
       render() { 
         return (
-        <div className='profile'>
+        <div className='profile-page'>
           <HeaderWithAuth {...this.props} />
-          <div className="profile-card">Страница профиля</div>
+          <CardForm />
         </div>
         );
     }

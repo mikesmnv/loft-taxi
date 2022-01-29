@@ -8,14 +8,9 @@ const Registration = (props) => {
                 <div className='login-page__menu'>
                     <Logo />
                 </div>
-                <RegistrationForm navigate={props.navigate} />
+                <RegistrationForm />
             </div>
     )
-
 }
-
-// Registration.propTypes = {
-//     navigate: PropTypes.func.isRequired
-// }
 
 export default Registration ;
