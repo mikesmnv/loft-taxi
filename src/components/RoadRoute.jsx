@@ -1,13 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 
 const RoadRoute = (props) => {
+
+    const [taxiType, setTaxiType] = useState("standart");
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const startingPoint = event.target.startingPoint.value;
         const finishingPoint = event.target.finishingPoint.value;
-        //const taxiType = event.target.standart.value;
-        console.log(startingPoint, finishingPoint);
+        console.log(startingPoint, finishingPoint, taxiType);
     }
 
     return (               
@@ -15,9 +17,12 @@ const RoadRoute = (props) => {
             <input id="startingPoint" type="text" name="startingPoint" size="20" />
             <input id="finishingPoint" type="text" name="finishingPoint" size="14" />
             <div className="taxi">
-                <span><input id="standart" type="image" alt="Стандарт" name="standart"/></span>
-                <span><input id="premium" type="image" alt="Премиум" name="premium"/></span>
-                <span><input id="business" type="image" alt="Бизнес" name="business"/></span>
+                <span onClick={(event)=>{ event.preventDefault(); setTaxiType("standart")}}>
+                    <img id="standart" src="#" alt="Стандарт" name="standart"/></span>
+                <span onClick={(event)=>{ event.preventDefault(); setTaxiType("premium")}}>
+                    <img id="premium" src="#" alt="Премиум" name="premium"/></span>
+                <span onClick={(event)=>{ event.preventDefault(); setTaxiType("business")}}>
+                    <img id="business" src="#" alt="Бизнес" name="business"/></span>
             </div>
             <button type="submit" className="form__button">Заказать</button>
         </form> 
