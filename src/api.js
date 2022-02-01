@@ -6,7 +6,7 @@
   
   export const serverLogIn = async (email, password) => {
     const url = '//loft-taxi.glitch.me/auth';
-    const data = { email: email, password: password };
+    const data = { email, password };
     return fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -19,7 +19,7 @@
 
   export const serverRegister = async (email, password, name, surname) => {
     const url = '//loft-taxi.glitch.me/register';
-    const data = { email: email, password: password, name: name, surname: surname };
+    const data = { email, password, name, surname };
     return fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -43,5 +43,19 @@
       }
     }).then(res => res.json()).then(data => { return data.success ? data.success :
                                               console.log(data.error);
+                                            });
+  };
+
+  export const getAddresses = async () => {
+    const url = '//loft-taxi.glitch.me/addressList';
+    return fetch(url).then(res => res.json()).then(data => { return data.addresses ? data.addresses :
+                                              [];
+                                            });
+  };
+
+  export const getServerRoute = async (address1, address2) => {
+    const url = `//loft-taxi.glitch.me/route?address1=${address1}&address2=${address2}`;
+    return fetch(url).then(res => res.json()).then(data => { console.log(data); return data ? data :
+                                              [];
                                             });
   };

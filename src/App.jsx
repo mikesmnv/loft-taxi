@@ -15,11 +15,11 @@ class App extends React.Component {
       <main className='main'>
           <section className='main-page'>
               <Routes>
-                <Route exact path="" element={<Login {...this.props}/>}/>
-                <Route exact path="login" element={<Login {...this.props}/>}/>
-                <Route path="profile" element={<PrivateRoute><Profile {...this.props}/></PrivateRoute>}/>
-                <Route path="home" element={<PrivateRoute><Home {...this.props}/></PrivateRoute>}/>
-                <Route exact path="registration" element={<Registration {...this.props}/>}/>
+                <Route exact path="" element={<Login />}/>
+                <Route exact path="login" element={<Login />}/>
+                <Route path="profile" element={<PrivateRoute><Profile /></PrivateRoute>}/>
+                <Route path="home" element={<PrivateRoute><Home /></PrivateRoute>}/>
+                <Route exact path="registration" element={<Registration />}/>
               </Routes>
           </section>
       </main>
@@ -28,6 +28,7 @@ class App extends React.Component {
 }
 
 export default connect(
-  state => ({isLoggedIn: state.auth.isLoggedIn})
+  null, 
+  null
 )(App);
 
