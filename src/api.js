@@ -14,7 +14,7 @@
         'Content-Type': 'application/json'
       }
     }).then(res => res.json()).then(data => { console.log(data.success);
-                                              return data.success});
+                                              return data.token});
   };
 
   export const serverRegister = async (email, password, name, surname) => {
@@ -31,10 +31,10 @@
                                             });
   };
 
-  export const serverCard = async (cardNumber, expirDate, ownersName, cvcCode) => {
+  export const serverCard = async (cardNumber, expirDate, ownersName, cvcCode, token) => {
     const url = '//loft-taxi.glitch.me/card';
     const data = { cardNumber: cardNumber, expiryDate: expirDate, cardName: ownersName, 
-                   cvc: cvcCode, token: "AUTH_TOKEN" };
+                   cvc: cvcCode, token: token };
     return fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -42,6 +42,14 @@
         'Content-Type': 'application/json'
       }
     }).then(res => res.json()).then(data => { return data.success ? data.success :
+                                              console.log(data.error);
+                                            });
+  };
+
+  export const getCard = async (token) => {
+    const url = `//loft-taxi.glitch.me/card?token=${token}`;
+
+    return fetch(url).then(res => res.json()).then(data => { return data.id ? data.id :
                                               console.log(data.error);
                                             });
   };

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addressList, routeTo } from "../actions";
+import { addressList, routeTo, getCard } from "../actions";
 
 const RoadRoute = (props) => {
 
@@ -12,6 +12,8 @@ const RoadRoute = (props) => {
     useEffect(() => {
         props.addressList();
         setAddresses(props.addresses);
+        if (props.token)
+            props.getCard(props.token);       
     }, [0]);
 
     const handleSubmit = (event) => {
@@ -50,8 +52,9 @@ const RoadRoute = (props) => {
 
 const RoadRouteWithConnect = connect(
     (state) => ({isHavingCard: state.card.isHavingCard,
+                 token: state.auth.authToken,
                  addresses: state.addresses.addresses}),
-    { addressList, routeTo }
+    { addressList, routeTo, getCard }
 ) (RoadRoute)
 
 export default RoadRouteWithConnect;

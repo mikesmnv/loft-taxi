@@ -5,10 +5,9 @@ import createSagaMiddleware from "redux-saga";
 import { addressListSaga } from "./addressListSaga";
 import { routeSaga } from "./routeSaga";
 
-const addressListSagaMiddleware = createSagaMiddleware();
-const routeSagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(rootReducer, applyMiddleware(authMiddleware, addressListSagaMiddleware, routeSagaMiddleware));
+export const store = createStore(rootReducer, applyMiddleware(authMiddleware, sagaMiddleware));
 
-addressListSagaMiddleware.run(addressListSaga);
-routeSagaMiddleware.run(routeSaga);
+sagaMiddleware.run(addressListSaga);
+sagaMiddleware.run(routeSaga);

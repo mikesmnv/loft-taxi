@@ -5,12 +5,13 @@ export const REGISTRATION = "REGISTRATION";
 export const REGISTER = "REGISTER";
 export const CARD = "CARD";
 export const SAVECARD = "SAVECARD";
+export const GET_CARD = "GET_CARD";
 export const GET_ADDRESS_LIST = "GET_ADDRESS_LIST";
 export const ADDRESS_LIST = "ADDRESS_LIST";
 export const ROUTE = "ROUTE";
-export const GET_ROUTE = "GETG_ROUTE";
+export const GET_ROUTE = "GET_ROUTE";
 
-export const logIn = () => ({ type: LOG_IN });
+export const logIn = (authToken) => ({ type: LOG_IN, payload: authToken });
 
 export const logOut = () => ({ type: LOG_OUT });
 
@@ -26,12 +27,18 @@ export const registration = (email, password, name, surname) => ({
   payload: { email, password, name, surname },
 });
 
-export const card = () => ({ type: CARD });
+export const card = (id) => ({ type: CARD, payload: id });
 
-export const saveCard = (cardNumber, expirDate, ownersName, cvcCode) => ({
+export const saveCard = (cardNumber, expirDate, ownersName, cvcCode, token) => ({
   type: SAVECARD,
-  payload: { cardNumber, expirDate, ownersName, cvcCode },
+  payload: { cardNumber, expirDate, ownersName, cvcCode, token },
 });
+
+export const getCard = (token) => ({
+  type: GET_CARD,
+  payload: token,
+});
+
 
 export const getAddressList = ( addresses ) => ({
   type: GET_ADDRESS_LIST,

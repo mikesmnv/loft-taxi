@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { saveCard } from "../actions.js";
+import { saveCard, getCard } from "../actions.js";
 
 class CardForm extends React.Component {
 
@@ -11,12 +11,17 @@ class CardForm extends React.Component {
         const expirDate = event.target.expirDate.value;
         const ownersName = event.target.ownersName.value;
         const cvcCode = event.target.cvcCode.value;
-        this.props.saveCard(cardNumber, expirDate, ownersName, cvcCode);
+        const token = this.props.authToken;
+        this.props.saveCard(cardNumber, expirDate, ownersName, cvcCode, token);
       };
+
+      componentDidMount() {
+        const token = this.props.token;
+        this.props.getCard(token);       
+      }
 
       render() {
             const isHavingCard = this.props.isHavingCard;
-            console.log(isHavingCard);
             return ( isHavingCard ? <span className='form__reg-button'> <Link to="/home"> Перейти к заказу такси </Link> </span> :
                 <form title='Профиль' className='card-form' onSubmit={this.handleSubmit}>
                     <div className='form__tittle'>Профиль</div>
@@ -35,8 +40,8 @@ class CardForm extends React.Component {
     }
 
     const CardFormWithConnect = connect(
-        (state) => ({isHavingCard: state.card.isHavingCard}),
-        { saveCard }
+        (state) => ({isHavingCard: state.card.isHavingCard, token: state.auth.authToken}),
+        { saveCard, getCard}
     ) (CardForm)
     
     export default CardFormWithConnect ;
